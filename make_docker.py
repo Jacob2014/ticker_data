@@ -6,12 +6,12 @@ tickers_file = '12'
 # Шаблон для сервиса в docker-compose
 service_template = """
   {ticker}:
-    build: ./{ticker}
+    build: ./{ticker_upper}
     container_name: {ticker}_container
     environment:
       - TZ=Europe/Moscow
     volumes:
-      - ./{ticker}:/app
+      - ./{ticker_upper}:/app
     restart: unless-stopped
 """
 
@@ -21,7 +21,8 @@ def generate_docker_compose(tickers):
     services = []
 
     for ticker in tickers:
-        service = service_template.format(ticker=ticker)
+        ticker_lower = ticker.lower()
+        service = service_template.format(ticker=ticker_lower, ticker_upper=ticker)
         services.append(service)
 
     # Соединяем все части
