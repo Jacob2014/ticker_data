@@ -1,0 +1,8 @@
+asyncio
+json
+ssl
+uuid
+websockets
+stomp.py
+mysql-connector-python
+python-dotenv
