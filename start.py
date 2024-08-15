@@ -9,7 +9,7 @@ tickers_file = '12'
 # Функция для запуска процесса
 def run_script(ticker):
     try:
-        subprocess.run(["python3", f"./{ticker}/main.py"], check=True)
+        subprocess.run(["python3", f"./{ticker.upper}/main.py"], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Процесс {ticker} завершился с ошибкой: {e}. Перезапуск через 5 секунд...")
         time.sleep(5)
